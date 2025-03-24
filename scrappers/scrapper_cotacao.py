@@ -42,8 +42,8 @@ class Cotacao(Scrapper):
 
 if __name__ == "__main__":
     while True:
-        cotacao = Cotacao()
-        cotacao.get_cotacoes()
+        with Cotacao() as cotacao:
+            cotacao.get_cotacoes()
         send_email("Cotações", "Cotações do dia", "cotacoes.csv")
         time.sleep(60)
         print("Atualizando cotações...")

@@ -69,7 +69,6 @@ class Clima(Scrapper):
 
 
 if __name__ == "__main__":
-    clima = Clima()
     while True:
         cidade = input('Digite sua cidade ou "sair" para fechar:').lower()
         principais = input("Deseja ver as principais cidades? (s/n): ").lower()
@@ -78,4 +77,5 @@ if __name__ == "__main__":
         if principais not in ["s", "n"]:
             print("Opção inválida")
             continue
-        clima.get_clima(cidade, True if principais == "s" else False)
+        with Clima() as clima:
+            clima.get_clima(cidade, True if principais == "s" else False)
