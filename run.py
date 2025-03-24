@@ -13,4 +13,4 @@ thred1 = threading.Thread(target=execute, args=("scrappers/scrapper_cotacao.py",
 thred1.start()
 time.sleep(15)
 thred2 = threading.Thread(target=execute, args=("scrappers/scrapper_clima.py",))
-thred1.start()
+thred2.start()
