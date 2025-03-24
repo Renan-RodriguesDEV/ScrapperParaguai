@@ -9,7 +9,12 @@ def execute(path):
     subprocess.run(["python3", path])
 
 
-os.sys("playwright install")
+try:
+    os.system("playwright install")
+except Exception as e:
+    print(e)
+    pass
+
 # Execute a Python script
 thred1 = threading.Thread(target=execute, args=("scrappers/scrapper_cotacao.py",))
 thred1.start()
