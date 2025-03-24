@@ -37,7 +37,7 @@ def send_email(title, body, attachment_path):
 
         att.add_header(
             "Content-Disposition",
-            f"attachment; filename={attachment_path.split("/")[-1]}",
+            f"attachment; filename={attachment_path.split('/')[-1]}",
         )
     msg.attach(att)
     __send_email(msg)
