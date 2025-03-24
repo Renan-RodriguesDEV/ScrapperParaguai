@@ -1,3 +1,5 @@
+import time
+from sender_email import send_email
 from utils import remover_acentos
 from scrapper import Scrapper
 import pandas as pd
@@ -70,12 +72,19 @@ class Clima(Scrapper):
 
 if __name__ == "__main__":
     while True:
-        cidade = input('Digite sua cidade ou "sair" para fechar:').lower()
-        principais = input("Deseja ver as principais cidades? (s/n): ").lower()
-        if cidade.lower() == "sair":
-            break
-        if principais not in ["s", "n"]:
-            print("Opção inválida")
-            continue
+        # TODO: implementar a entrada de dados
+        # cidade = input('Digite sua cidade ou "sair" para fechar:').lower()
+        # principais = input("Deseja ver as principais cidades? (s/n): ").lower()
+        # if cidade.lower() == "sair":
+        #     break
+        # if principais not in ["s", "n"]:
+        #     print("Opção inválida")
+        #     continue
+        # with Clima() as clima:
+        #     clima.get_clima(cidade, True if principais == "s" else False)
+
         with Clima() as clima:
-            clima.get_clima(cidade, True if principais == "s" else False)
+            clima.get_clima("Pedro Juan Caballero", True)
+        send_email("Clima", "Clima do dia", "clima.csv")
+        print("Atualizando clima...")
+        time.sleep(60)

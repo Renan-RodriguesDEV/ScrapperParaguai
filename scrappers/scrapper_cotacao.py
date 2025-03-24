@@ -31,8 +31,6 @@ class Cotacao(Scrapper):
                 "//*[@id='tablero_arbitraje']/tbody/tr[*]/td"
             )
         ]
-        # cotacoes = map(lambda x: x.replace(",", "."), cotacoes)
-        # arbitragens = map(lambda x: x.replace(",", "."), arbitragens)
         print("Cotações")
         print("*" * 100)
         write_csv(cotacoes, "cotacoes.csv")
